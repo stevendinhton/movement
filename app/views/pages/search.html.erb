@@ -1,0 +1,16 @@
+<div class="columns">
+  <% @page.each do |page| %>
+    <div class="column">
+      <div class="card">
+        <header class="card-header-title">
+          <%= page.title %>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <%= page.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
