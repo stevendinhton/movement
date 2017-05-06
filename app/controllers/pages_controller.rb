@@ -38,6 +38,10 @@ class PagesController < ApplicationController
     @page = Page.find_by_id(params[:id])
   end
 
+  def search
+    @page = Page.where("title like ?", "%#{params[:page][:title]}%")
+  end
+
   private
 
   def load_user

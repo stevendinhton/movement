@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :pages do
+    collection do
+      post 'search'
+    end
     member do
     end
   end

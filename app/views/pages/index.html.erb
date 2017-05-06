@@ -1,1 +1,5 @@
+<%= form_tag ({controller: "pages", action: "search"}) do %>
+  <%= search_field(:page, :title) %>
+  <%= submit_tag "Search" %>
+<% end %>
 <%= react_component("Movements", { popular: @popular, recent: @recent }) %>
