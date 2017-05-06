@@ -1,1 +1,7 @@
-hi
+<%= form_for @page, url: {controller: "pages", action: "create"} do |f| %>
+  <%= f.label :title, "Title:" %>
+  <%= f.text_field :title %>
+  <%= f.label :description, "Content:" %>
+  <%= f.text_area :description %>
+  <%= f.submit "Create Movement" %>
+<% end %>

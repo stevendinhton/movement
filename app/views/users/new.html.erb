@@ -1,7 +1,7 @@
 <%= form_for User.new, url: {controller: "users", action: "create"} do |f| %>
   <%= f.label :username, "User Name:" %>
   <%= f.text_field :username %>
-  <%= f.label :username, "Password:" %>
+  <%= f.label :password, "Password:" %>
   <%= f.password_field :password %>
-  <%= f.submit %>
+  <%= f.submit "Sign Up" %>
 <% end %>
