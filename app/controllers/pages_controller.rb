@@ -39,7 +39,12 @@ class PagesController < ApplicationController
   end
 
   def search
-    @page = Page.where("title like ?", "%#{params[:page][:title]}%")
+      _res_title = Page.where("title like ?", "%#{params[:page][:title]}%")
+      _res_desc = Page.where("description like ?", "%#{params[:page][:title]}%")
+      _user_id = User.find_by_username(params[:page][:title]).id
+      _res_user = Page.where(user_id: _user_id)
+      @page = _res_title + _res_desc + _res_user
+      @page = @page.uniq
   end
 
   private
