@@ -8,15 +8,18 @@ class UsersController < ApplicationController
   def create
     @user = User.find_by_username(params[:user][:username])
     if @user
+      flash[:error] = "Username Already Exists"
       redirect_to request.env["HTTP_REFERER"]
-    end
-
-    @user.update_attributes(username: params[:user][:username], password: params[:user][:password])
-    if @user.save
-      @text = "created"
-      session[:current_user_id] = @user.id
     else
-      @text = "error"
+      @user = User.new
+      @user.update_attributes(username: params[:user][:username], password: params[:user][:password])
+      if @user.save
+        flash[:notice] = "created"
+        session[:current_user_id] = @user.id
+      else
+        flash[:error] = "error"
+      end
+      redirect_to :root
     end
   end
 
@@ -28,13 +31,13 @@ class UsersController < ApplicationController
     @user = User.find_by_username(params[:user][:username])
     if @user
       if @user.password == params[:user][:password]
-        @text = "Logged In"
+        flash[:notice] = "Logged In"
         session[:current_user_id] = @user.id
       else
-        @text = "Incorrect Password"
+        flash[:error] = "Incorrect Password"
       end
     else
-      @text = "Incorrect Username"
+      flash[:error] = "Incorrect Username"
     end
     redirect_to :root
   end
