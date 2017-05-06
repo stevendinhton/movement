@@ -11,6 +11,13 @@
 
   <body>
     <%= render 'layouts/bar' %>
-    <%= yield %>
+
+    <section class="section">
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "notification is-warning", id: "flash" %>
+      <% end %>
+
+      <%= yield %>
+    </section>
   </body>
 </html>
