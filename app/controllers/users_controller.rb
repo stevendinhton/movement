@@ -33,13 +33,15 @@ class UsersController < ApplicationController
       if @user.password == params[:user][:password]
         flash[:notice] = "Logged In"
         session[:current_user_id] = @user.id
+        redirect_to :root
       else
         flash[:error] = "Incorrect Password"
+        redirect_to request.env["HTTP_REFERER"]
       end
     else
       flash[:error] = "Incorrect Username"
+      redirect_to request.env["HTTP_REFERER"]
     end
-    redirect_to :root
   end
 
   def logout

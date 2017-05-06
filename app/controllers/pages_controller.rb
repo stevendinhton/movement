@@ -2,7 +2,16 @@ class PagesController < ApplicationController
   before_action :load_user
 
   def index
-    @pages = Page.all
+    @popular = []
+    pages = Page.all.map{|p| {:page => p, :followers => p.num_followers}}.sort{|a,b| b[:followers] <=> a[:followers]}
+    pages[0..3].each do |i|
+      @popular << i[:page]
+    end
+    @recent = []
+    pages = Page.order(created_at: :desc)
+    pages[0..3].each do |i|
+      @popular << i
+    end
   end
 
   def new
