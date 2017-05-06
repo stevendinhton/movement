@@ -51,10 +51,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user == nil
-      flash[:error] = "Please login."
-      redirect_to :login
-    end
+    return if @user
+    flash[:error] = "Please login."
+    redirect_to :login_users
   end
 
   def change_password
