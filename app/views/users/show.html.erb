@@ -1,0 +1,6 @@
+<%= "My Movements" %> <br />
+<% @user.pages.each do |page| %>
+  <%= page.title %><br />
+  <%= page.description %><br />
+  <%= link_to "Go to the page", controller:"pages", action:"new", id:page.id %>
+<% end %>

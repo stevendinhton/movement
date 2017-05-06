@@ -50,6 +50,12 @@ class UsersController < ApplicationController
     redirect_to :root
   end
 
+  def show
+    if @user == nil
+      flash[:error] = "Please login."
+      redirect_to :login
+  end
+
   private
 
   def load_user
