@@ -1,6 +1,6 @@
 <nav class="nav">
   <div class="nav-left">
-    <a class="nav-item logo">
+    <a class="nav-item logo" href="/">
       <i class="fa fa-fire"></i>
       <h1>Movement</h1>
     </a>
@@ -8,8 +8,16 @@
   <div class="nav-right">
     <div class="nav-item">
       <p class="control">
-        <a class="button is-primary">Sign in</a>
-        <a class="button">Sign up</a>
+        <% if @user %>
+          <a class="button is-primary">
+            <i class="fa fa-user"></i>
+            <%= @user.username %>
+          </a>
+          <a class="button" href="/users/logout">Sign out</a>
+        <% else %>
+          <a class="button is-primary" href='/users/login'>Login</a>
+          <a class="button" href='/users/new'>Sign up</a>
+        <% end %>
       </p>
     </div>
   </div>
