@@ -14,4 +14,5 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
+  get 'profile' => 'users#show'
 end

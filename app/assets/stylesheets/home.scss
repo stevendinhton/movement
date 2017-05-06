@@ -19,6 +19,11 @@ body, html {
   color: $primary !important;
 }
 
+.title {
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+}
+
 .nav {
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 }
@@ -38,5 +43,5 @@ i {
 
 section.section {
   background-color: $bg-color;
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
