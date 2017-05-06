@@ -1,0 +1,5 @@
+class AddDonationsToPages < ActiveRecord::Migration[5.1]
+  def change
+    add_column :pages, :donations, :integer, :default => 0
+  end
+end
