@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user
+  before_action :load_user, :except => [:new, :create, :login, :validate_login]
 
   def new
     @user = User.new
@@ -45,6 +45,6 @@ class UsersController < ApplicationController
   private
 
   def load_user
-    @user = User.find(session[:current_user_id])
+    @user = User.find_by_id(session[:current_user_id])
   end
 end

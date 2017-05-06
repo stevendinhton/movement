@@ -12,6 +12,6 @@ class PagesController < ApplicationController
   private
 
   def load_user
-    @user = User.find(session[:current_user_id])
+    @user = User.find_by_id(session[:current_user_id])
   end
 end
