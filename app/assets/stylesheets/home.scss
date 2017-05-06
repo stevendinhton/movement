@@ -1,3 +1,37 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bulma";
+
+// colour variables
+$bg-color: #f7f7f7;
+$primary: #F44336;
+$primary-dark: #D32F2F;
+
+body, html {
+  background-color: $bg-color;
+}
+
+.logo {
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
+  color: $primary !important;
+}
+
+.nav {
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+.button {
+  &.is-primary {
+    background-color: $primary;
+    &:hover {
+      background-color: $primary-dark;
+    }
+  }
+}
+
+section.section {
+  background-color: $bg-color;
+}
