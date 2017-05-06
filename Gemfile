@@ -6,6 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 
+# React.js
+gem 'react-rails', '~> 2.1.0'
+# Bulma
+gem 'bulma-rails', '~> 0.4.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0'
 # Use sqlite3 as the database for Active Record
