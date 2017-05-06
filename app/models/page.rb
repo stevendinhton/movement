@@ -3,6 +3,6 @@ class Page < ApplicationRecord
   has_many :followings
 
   def num_followers
-    followings.countn
+    followings.count
   end
 end

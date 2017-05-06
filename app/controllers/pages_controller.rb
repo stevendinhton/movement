@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     @recent = []
     pages = Page.order(created_at: :desc)
     pages[0..3].each do |i|
-      @popular << i
+      @recent << i
     end
   end
 
