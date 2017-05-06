@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :load_user, :except => [:new, :create, :validate_login]
 
   def new
+    @user = User.new
   end
 
   def create
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
 
   def login
     redirect_to :root if @user
+    @user = User.new
     # field for will fill the values
   end
 
@@ -52,6 +54,21 @@ class UsersController < ApplicationController
     if @user == nil
       flash[:error] = "Please login."
       redirect_to :login
+    end
+  end
+
+  def change_password
+    if @user.password == params[:password] && params[:rep_password] == params[:new_password]
+      @user.password = params[:password]
+      if @user.save
+        flash[:notice] = "Password changed."
+      else
+        flash[:error] = "Failed to change the password."
+      end
+    else
+      flash[:error] = "Incorrect password."
+    end
+    redirect_to :back
   end
 
   private

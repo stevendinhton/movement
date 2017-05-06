@@ -4,3 +4,14 @@
   <%= page.description %><br />
   <%= link_to "Go to the page", controller:"pages", action:"new", id:page.id %>
 <% end %>
+
+<br /><%= "change my password" %><br />
+<%= form_tag("change_password", method: "get") do %>
+  <%= label_tag(:password, "current password:") %>
+  <%= password_field_tag(:password) %>
+  <%= label_tag(:new_password, "new password:") %>
+  <%= password_field_tag(:new_password) %>
+  <%= label_tag(:rep_password, "new password again:") %>
+  <%= password_field_tag(:rep_password) %>
+  <%= submit_tag() %>
+<% end %>
