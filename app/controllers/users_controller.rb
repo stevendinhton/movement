@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, :except => [:new, :create, :login, :validate_login]
+  before_action :load_user, :except => [:new, :create, :validate_login]
 
   def new
     @user = User.new
@@ -24,7 +24,9 @@ class UsersController < ApplicationController
   end
 
   def login
+    redirect_to :root if @user
     @user = User.new
+    # field for will fill the values
   end
 
   def validate_login
