@@ -5,12 +5,12 @@ class PagesController < ApplicationController
     @popular = []
     pages = Page.all.map{|p| {:page => p, :followers => p.num_followers}}.sort{|a,b| b[:followers] <=> a[:followers]}
     pages[0..2].each do |i|
-      @popular << i[:page]
+      @popular << {:page => i[:page], :followers => i[:page].followers}
     end
     @recent = []
     pages = Page.order(created_at: :desc)
     pages[0..2].each do |i|
-      @recent << i
+      @recent << {:page => i, :followers => i.followers}
     end
   end
 
@@ -50,7 +50,7 @@ class PagesController < ApplicationController
   def add_comment
     @comment = Comment.new()
     @comment.update_attributes(:content => params[:comment][:content], :user_id => params[:comment][:user_id], :page_id => params[:comment][:page_id])
-    @comment.save   
+    @comment.save
     redirect_to request.env["HTTP_REFERER"]
   end
 
