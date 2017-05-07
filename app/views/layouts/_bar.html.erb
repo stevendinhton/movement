@@ -8,7 +8,7 @@
   <div class="nav-center">
     <div class="nav-item">
       <%= form_tag ({controller: "pages", action: "search"}) do %>
-        <%= search_field(:page, :title, class: "input", placeholder: "Search") %>
+        <%= search_field(:pages, :title, {class: "input", placeholder: "Search"}) %>
       <% end %>
     </div>
   </div>

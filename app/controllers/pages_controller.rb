@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     if @user
       @page = Page.new
     else
-      flash[:error] = "Plase Login"
+      flash[:error] = "Please Login"
       redirect_to :login_users
     end
   end
@@ -39,9 +39,9 @@ class PagesController < ApplicationController
   end
 
   def search
-    _res_title = Page.where("title like ?", "%#{params[:page][:title]}%")
-    _res_desc = Page.where("description like ?", "%#{params[:page][:title]}%")
-    _user_id = User.find_by_username(params[:page][:title]).id
+    _res_title = Page.where("title like ?", "%#{params[:pages][:title]}%")
+    _res_desc = Page.where("description like ?", "%#{params[:pages][:title]}%")
+    _user_id = User.find_by_username(params[:pages][:title]) ? User.find_by_username(params[:page][:title]).id : nil
     _res_user = Page.where(user_id: _user_id)
     @page = _res_title + _res_desc + _res_user
     @page = @page.uniq
