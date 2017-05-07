@@ -5,6 +5,13 @@
       <h1>Movement</h1>
     </a>
   </div>
+  <div class="nav-center">
+    <div class="nav-item">
+      <%= form_tag ({controller: "pages", action: "search"}) do %>
+        <%= search_field(:page, :title, class: "input", placeholder: "Search") %>
+      <% end %>
+    </div>
+  </div>
   <div class="nav-right">
     <div class="nav-item">
       <p class="control">
