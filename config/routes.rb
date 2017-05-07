@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :pages do
     collection do
       post 'search'
+      post 'add_comment'
     end
     member do
     end

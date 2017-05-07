@@ -11,4 +11,18 @@
   </div>
   <div class="column">
   </div>
+  <p>Comments</p>
+  <% @page.comments.each do |c| %>
+    <div><%= c.content %></div>
+    <div><%= c.user.username %></div>
+  <% end %>
+  <% if @user %>
+    <p>Add a Comment</p>
+    <%= form_for Comment.new, url: {controller: "pages", action: "add_comment"} do |f| %>
+      <%= f.text_field :content, class: "input" %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :page_id, value: @page.id %>
+      <%= f.submit "Add Comment" %>
+    <% end %>
+  <% end %>
 </div>

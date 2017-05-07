@@ -47,6 +47,13 @@ class PagesController < ApplicationController
     @page = @page.uniq
   end
 
+  def add_comment
+    @comment = Comment.new()
+    @comment.update_attributes(:content => params[:comment][:content], :user_id => params[:comment][:user_id], :page_id => params[:comment][:page_id])
+    @comment.save   
+    redirect_to request.env["HTTP_REFERER"]
+  end
+
   private
 
   def load_user
