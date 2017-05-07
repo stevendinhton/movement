@@ -5,12 +5,12 @@ class PagesController < ApplicationController
     @popular = []
     pages = Page.all.map{|p| {:page => p, :followers => p.num_followers}}.sort{|a,b| b[:followers] <=> a[:followers]}
     pages[0..2].each do |i|
-      @popular << {:page => i[:page], :followers => i[:page].followers}
+      @popular << i[:page].attributes.merge({:followers => i[:page].num_followers})
     end
     @recent = []
     pages = Page.order(created_at: :desc)
     pages[0..2].each do |i|
-      @recent << {:page => i, :followers => i.followers}
+      @recent << i.attributes.merge({:followers => i.num_followers})
     end
   end
 
