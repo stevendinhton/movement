@@ -20,11 +20,11 @@
   </div>
   <div class="column">
     <div class="card">
-      <header class="card-header-title">My Movements</header>
+      <header class="card-header-title">What I Am Following</header>
       <div class="card-content">
         <ul>
-          <% @user.pages.each do |page| %>
-            <li><h1 class='title is-5'><a href="/pages/<%= page.id %>"><%= page.title %></a></h1></li>
+          <% @user.followings.each do |following| %>
+            <li><h1 class='title is-5'><a href="/pages/<%= following.page.id %>"><%= following.page.title %></a></h1></li>
           <% end %>
         </ul>
       </div>
