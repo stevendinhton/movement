@@ -17,5 +17,6 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
+  get 'follow/:id' => 'users#follow_page'
   get 'profile' => 'users#show'
 end

@@ -15,7 +15,7 @@ var Movements = React.createClass({
             </div>
             <footer className="card-footer">
               <a className="card-footer-item" href={ "/pages/" + movement.id }>View</a>
-              <a className="card-footer-item">Follow</a>
+              <a className="card-footer-item" href={ "/follow/" + movement.id }>Follow</a>
             </footer>
           </div>
         </div>
@@ -40,7 +40,7 @@ var Movements = React.createClass({
             </div>
             <footer className="card-footer">
               <a className="card-footer-item" href={ "/pages/" + movement.id }>View</a>
-              <a className="card-footer-item">Follow</a>
+              <a className="card-footer-item" href={ "/follow/" + movement.id }>Follow</a>
             </footer>
           </div>
         </div>
