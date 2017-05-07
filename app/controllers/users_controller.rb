@@ -70,6 +70,11 @@ class UsersController < ApplicationController
     redirect_to :back
   end
 
+  def follow_page
+    flash[:notice] = "Movement followed." if @user.follow(params.require(:id))
+    redirect_to :root
+  end
+
   private
 
   def load_user

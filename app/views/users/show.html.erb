@@ -1,17 +1,33 @@
-<%= "My Movements" %> <br />
-<% @user.pages.each do |page| %>
-  <%= page.title %><br />
-  <%= page.description %><br />
-  <%= link_to "Go to the page", controller:"pages", action:"new", id:page.id %>
-<% end %>
 
-<br /><%= "change my password" %><br />
-<%= form_tag("change_password", method: "get") do %>
-  <%= label_tag(:password, "current password:") %>
-  <%= password_field_tag(:password) %>
-  <%= label_tag(:new_password, "new password:") %>
-  <%= password_field_tag(:new_password) %>
-  <%= label_tag(:rep_password, "new password again:") %>
-  <%= password_field_tag(:rep_password) %>
-  <%= submit_tag() %>
-<% end %>
+
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    <div class="card">
+      <header class="card-header-title">Change Password</header>
+      <div class="card-content">
+        <%= form_tag("change_password", method: "get") do %>
+          <%= label_tag(:password, "Current password:", class: "label") %>
+          <%= password_field_tag(:password, nil, class: "input") %>
+          <%= label_tag(:new_password, "New password:", class: "label") %>
+          <%= password_field_tag(:new_password, nil, class: "input") %>
+          <%= label_tag(:rep_password, "New password again:", class: "label") %>
+          <%= password_field_tag(:rep_password, nil, class: "input") %>
+          <%= submit_tag() %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <header class="card-header-title">My Movements</header>
+      <div class="card-content">
+        <ul>
+          <% @user.pages.each do |page| %>
+            <li><h1 class='title is-5'><a href="/pages/<%= page.id %>"><%= page.title %></a></h1></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
