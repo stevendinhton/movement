@@ -11,6 +11,8 @@ var Movements = React.createClass({
             <div className="card-content">
               <div className="content">
                 { movement.description }
+                <br />
+                <small>Followers: { movement.followers }</small>
               </div>
             </div>
             <footer className="card-footer">
@@ -36,6 +38,8 @@ var Movements = React.createClass({
             <div className="card-content">
               <div className="content">
                 { movement.description }
+                <br />
+                <small>Followers: { movement.followers }</small>
               </div>
             </div>
             <footer className="card-footer">
