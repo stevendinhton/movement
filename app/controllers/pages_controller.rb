@@ -12,6 +12,14 @@ class PagesController < ApplicationController
     pages[0..2].each do |i|
       @recent << i.attributes.merge({:followers => i.num_followers})
     end
+    @following = []
+    if @user && @user.followings.any?
+      @following = []
+      pages = @user.followings
+      pages[0..2].each do |i|
+        @following << i.page.attributes.merge({:followers => i.page.num_followers})
+      end
+    end
   end
 
   def new
