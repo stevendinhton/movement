@@ -4,12 +4,12 @@ class PagesController < ApplicationController
   def index
     @popular = []
     pages = Page.all.map{|p| {:page => p, :followers => p.num_followers}}.sort{|a,b| b[:followers] <=> a[:followers]}
-    pages[0..3].each do |i|
+    pages[0..2].each do |i|
       @popular << i[:page]
     end
     @recent = []
     pages = Page.order(created_at: :desc)
-    pages[0..3].each do |i|
+    pages[0..2].each do |i|
       @recent << i
     end
   end
