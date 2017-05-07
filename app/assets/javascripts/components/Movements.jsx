@@ -10,7 +10,7 @@ var Movements = React.createClass({
             </header>
             <div className="card-content">
               <div className="content">
-                { movement.description }
+                { movement.description.substring(0,300) }
                 <br />
                 <small>Followers: { movement.followers }</small>
               </div>
@@ -37,7 +37,7 @@ var Movements = React.createClass({
             </header>
             <div className="card-content">
               <div className="content">
-                { movement.description }
+                { movement.description.substring(0,300) }
                 <br />
                 <small>Followers: { movement.followers }</small>
               </div>
