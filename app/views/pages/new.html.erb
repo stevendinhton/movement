@@ -1,7 +1,22 @@
-<%= form_for @page, url: {controller: "pages", action: "create"} do |f| %>
-  <%= f.label :title, "Title:" %>
-  <%= f.text_field :title %>
-  <%= f.label :description, "Content:" %>
-  <%= f.text_area :description %>
-  <%= f.submit "Create Movement" %>
-<% end %>
+<div class="columns">
+  <div class="column"></div>
+  <div class="column">
+    <div class="card centered">
+      <header class="card-header-title">Start a new movement</header>
+      <div class="card-content">
+        <%= form_for @page, url: {controller: "pages", action: "create"} do |f| %>
+        <div class="field">
+          <%= f.label :title, "Title:", class: "label" %>
+          <%= f.text_field :title, class: "input" %>
+        </div>
+        <div class="field">
+          <%= f.label :description, "Description:", class: "label" %>
+          <%= f.text_area :description, class: "input large" %>
+        </div>
+        <%= f.submit "Create Movement", class: "button is-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="column"></div>
+</div>
